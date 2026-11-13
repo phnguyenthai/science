@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore how hypothetical market shocks could affect a portfolio. Runs locally in your browser and does not predict markets.">
+    <title>What If? — Market Shock Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="What If? home">
+        <span class="brand-mark" aria-hidden="true">?</span>
+        <span>what if<span class="brand-dot">.</span></span>
+      </a>
+      <span class="top-note"><span class="live-dot"></span> A private portfolio stress lab</span>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">A calmer way to think about risk</p>
+        <h1>Don't guess the future.<br><span>Ask what if.</span></h1>
+        <p class="intro-copy">Try a rough market shock and see how it could affect the numbers you enter. No predictions, no account connection, no judgment.</p>
+      </section>
+
+      <section class="lab" aria-labelledby="portfolio-heading">
+        <div class="section-heading">
+          <div>
+            <p class="step-label">01 / YOUR PORTFOLIO</p>
+            <h2 id="portfolio-heading">What do you hold?</h2>
+          </div>
+          <span class="privacy-chip"><span aria-hidden="true">●</span> Stays in this browser</span>
+        </div>
+
+        <div class="holdings-wrap">
+          <div class="table-head" aria-hidden="true">
+            <span>Holding</span><span>Value</span><span>Hypothetical change</span><span></span>
+          </div>
+          <div id="holdings" class="holdings"></div>
+          <button type="button" class="add-button" id="add-holding"><span aria-hidden="true">＋</span> Add a holding</button>
+        </div>
+
+        <div class="scenario-section">
+          <div class="section-heading scenario-heading">
+            <div>
+              <p class="step-label">02 / CHOOSE A WHAT-IF</p>
+              <h2>Try a scenario</h2>
+            </div>
+            <p class="scenario-hint">Presets change every holding's shock. You can edit each one afterward.</p>
+          </div>
+          <div class="scenario-options" role="group" aria-label="Market shock scenario">
+            <button type="button" class="scenario-card" data-shock="-10">
+              <span class="scenario-icon" aria-hidden="true">↘</span>
+              <span class="scenario-title">A rough month</span>
+              <span class="scenario-detail">Every holding falls 10%</span>
+            </button>
+            <button type="button" class="scenario-card" data-shock="-25">
+              <span class="scenario-icon" aria-hidden="true">⌁</span>
+              <span class="scenario-title">A deep sell-off</span>
+              <span class="scenario-detail">Every holding falls 25%</span>
+            </button>
+            <button type="button" class="scenario-card" data-shock="-40">
+              <span class="scenario-icon" aria-hidden="true">⚡</span>
+              <span class="scenario-title">A severe shock</span>
+              <span class="scenario-detail">Every holding falls 40%</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" aria-labelledby="results-heading" aria-live="polite">
+        <div class="results-top">
+          <div>
+            <p class="step-label">03 / YOUR STRESS TEST</p>
+            <h2 id="results-heading">If that happened…</h2>
+          </div>
+          <span class="not-forecast">SCENARIO, NOT FORECAST</span>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-main">
+            <p class="result-label">Portfolio value in this scenario</p>
+            <p class="result-number" id="after-value">$0</p>
+            <div class="bar-track" aria-hidden="true"><div class="bar-fill" id="impact-bar"></div></div>
+            <div class="bar-labels"><span>After scenario</span><span id="before-value-label">Starting value: $0</span></div>
+          </article>
+          <article class="result-stat">
+            <p class="result-label">Hypothetical change</p>
+            <p class="stat-number loss-number" id="loss-value">$0</p>
+            <p class="stat-foot" id="loss-percent">0% of starting value</p>
+          </article>
+          <article class="result-stat">
+            <p class="result-label">Gain needed to recover</p>
+            <p class="stat-number" id="recovery-value">0%</p>
+            <p class="stat-foot">to get back to the starting value</p>
+          </article>
+        </div>
+
+        <div class="insight" id="insight" role="status">
+          <span class="insight-icon" aria-hidden="true">i</span>
+          <p>Add your own numbers or choose a scenario to explore the impact.</p>
+        </div>
+      </section>
+
+      <section class="learn">
+        <div class="learn-mark" aria-hidden="true">↗</div>
+        <div>
+          <p class="step-label">A USEFUL THING TO NOTICE</p>
+          <h2>A loss and the recovery are not symmetrical.</h2>
+          <p>If a portfolio falls 25%, it needs to rise about 33% to return to its starting value. This calculator shows arithmetic for the scenario you choose; it cannot tell you what markets will do.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Built for learning, not prediction.</strong> This tool uses only the numbers you enter, right here in your browser. It does not save or send them, model correlations, include taxes or fees, or provide investment advice.</p>
+    </footer>
+  </body>
+</html>
