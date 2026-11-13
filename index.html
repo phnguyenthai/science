@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="Đọc và chiêm nghiệm Kinh Kim Cang Bát Nhã Ba La Mật Đa qua 32 phẩm diễn ý.">
+  <title>Kinh Kim Cang — Bát Nhã Ba La Mật Đa</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f2e9;
+      --paper-raised: #fbf9f3;
+      --ink: #26352e;
+      --muted: #73786e;
+      --green: #355b48;
+      --green-deep: #203d31;
+      --gold: #b58b4c;
+      --line: #dfdbcf;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      padding: 0 clamp(20px, 5vw, 76px);
+      border-bottom: 1px solid var(--line);
+      background: rgb(245 242 233 / 94%);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: 17px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .top-link {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .top-link:hover, .top-link:focus-visible { color: var(--green); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(74px, 12vw, 142px) 24px 94px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgb(181 139 76 / 12%), transparent 58%),
+        var(--paper);
+      text-align: center;
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -80px;
+      bottom: -180px;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgb(181 139 76 / 13%);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: clamp(38px, 7vw, 72px);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.13;
+    }
+
+    .hero-subtitle {
+      margin: 14px 0 0;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.5vw, 25px);
+      font-style: italic;
+    }
+
+    .hero-intro {
+      max-width: 540px;
+      margin: 26px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-quote {
+      max-width: 660px;
+      margin: 48px auto 0;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: clamp(20px, 3vw, 27px);
+      line-height: 1.55;
+    }
+
+    .hero-quote cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 11px;
+      font-style: normal;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .read-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding: 12px 20px;
+      border: 1px solid var(--green);
+      border-radius: 2px;
+      color: var(--green-deep);
+      font-size: 13px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .read-button:hover, .read-button:focus-visible {
+      background: var(--green);
+      color: white;
+    }
+
+    .reader {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 720px);
+      justify-content: center;
+      gap: clamp(34px, 7vw, 96px);
+      padding: 64px 24px 100px;
+      border-top: 1px solid var(--line);
+      background: var(--paper-raised);
+    }
+
+    .contents {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      padding-right: 10px;
+    }
+
+    .contents-title {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .chapter-nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .chapter-nav a {
+      padding: 6px 9px;
+      border-left: 2px solid transparent;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: color .15s, border-color .15s;
+    }
+
+    .chapter-nav a[hidden] { display: none; }
+
+    .chapter-nav a:hover, .chapter-nav a:focus-visible, .chapter-nav a.active {
+      border-left-color: var(--gold);
+      color: var(--green-deep);
+    }
+
+    .reading-column { min-width: 0; }
+
+    .reading-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .reading-heading h2 {
+      margin: 0;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .reading-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .search {
+      width: min(230px, 43%);
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      outline: none;
+      background: var(--paper);
+      color: var(--ink);
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .search:focus { border-color: var(--green); }
+
+    .progress-track {
+      height: 2px;
+      margin: 24px 0 42px;
+      background: var(--line);
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      transition: width .15s;
+    }
+
+    .chapter {
+      scroll-margin-top: 106px;
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .chapter[hidden] { display: none; }
+
+    .chapter-number {
+      margin: 0 0 7px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .chapter h3 {
+      margin: 0 0 14px;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: clamp(21px, 3vw, 27px);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .chapter-summary {
+      margin-bottom: 16px;
+      color: #4c554d;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .reflection {
+      margin: 0;
+      padding: 11px 15px;
+      border-left: 2px solid var(--gold);
+      background: #f5f2e9;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reflection strong {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .no-results {
+      padding: 32px 0;
+      color: var(--muted);
+      font-family: var(--serif);
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .note strong { color: var(--green-deep); }
+
+    footer {
+      padding: 27px 20px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .reader {
+        grid-template-columns: minmax(0, 720px);
+        gap: 34px;
+        padding: 46px 22px 72px;
+      }
+
+      .contents {
+        position: static;
+        max-height: none;
+        padding: 0;
+      }
+
+      .chapter-nav {
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+
+      .chapter-nav a {
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 7px 10px;
+      }
+
+      .chapter-nav a:hover, .chapter-nav a:focus-visible, .chapter-nav a.active {
+        border-color: var(--gold);
+      }
+
+      .reading-heading { align-items: start; flex-direction: column; }
+      .search { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Kinh Kim Cang, về đầu trang">
+      <span class="brand-mark" aria-hidden="true">蓮</span>
+      <span>Trang đọc Kinh</span>
+    </a>
+    <a class="top-link" href="#doc-kinh">Đọc 32 phẩm <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Bát Nhã Ba La Mật Đa</p>
+      <h1 id="page-title">Kinh Kim Cang</h1>
+      <p class="hero-subtitle">Vajracchedikā Prajñāpāramitā Sūtra</p>
+      <p class="hero-intro">Một hành trình quán chiếu về tâm không chấp trước, lòng từ bi và trí tuệ thấy mọi pháp duyên sinh.</p>
+      <blockquote class="hero-quote">
+        “Ưng vô sở trụ nhi sinh kỳ tâm.”
+        <cite>Hãy khởi tâm mà không nương mắc vào đâu</cite>
+      </blockquote>
+      <a class="read-button" href="#doc-kinh">Bắt đầu đọc <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="reader" id="doc-kinh" aria-label="Đọc và tra cứu 32 phẩm">
+      <aside class="contents" aria-label="Mục lục">
+        <p class="contents-title">Mục lục · 32 phẩm</p>
+        <nav class="chapter-nav" id="chapter-nav" aria-label="Các phẩm trong kinh"></nav>
+      </aside>
+
+      <div class="reading-column">
+        <div class="reading-heading">
+          <div>
+            <h2>Con đường Bát Nhã</h2>
+            <p>Chậm rãi đọc, nhẹ nhàng chiêm nghiệm.</p>
+          </div>
+          <label class="search-label">
+            <span class="sr-only">Tìm trong các phẩm</span>
+            <input class="search" id="search" type="search" placeholder="Tìm một phẩm..." autocomplete="off">
+          </label>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Tiến độ đọc" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div id="chapters"></div>
+        <p class="no-results" id="no-results" hidden>Không tìm thấy phẩm phù hợp.</p>
+        <aside class="note">
+          <strong>Về nội dung:</strong> Đây là bản diễn ý và gợi mở chiêm nghiệm, không thay thế một bản dịch đầy đủ hay ấn bản dùng cho nghi lễ. Tên phẩm và cách diễn giải có thể khác nhau giữa các truyền bản.
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>Đọc với tâm tĩnh lặng · Chia sẻ để cùng học hỏi</footer>
+
+  <script>
+    const chapters = [
+      ["Pháp hội nhân do", "Kinh mở đầu bằng một sinh hoạt bình dị: Đức Phật cùng đại chúng khất thực, trở về và an trú. Sự tỉnh thức bắt đầu ngay trong những việc thường ngày.", "Trong một việc quen thuộc hôm nay, bạn có thể hiện diện trọn vẹn ra sao?"],
+      ["Thiện hiện khải thỉnh", "Tu Bồ Đề thưa hỏi cách người phát tâm Bồ-đề nên sống và điều phục tâm. Câu hỏi chân thành mở ra con đường thực hành.", "Điều gì trong bạn đang thật sự muốn được hiểu rõ?"],
+      ["Đại thừa chánh tông", "Người phát tâm rộng lớn nguyện giúp mọi loài đi đến an ổn, nhưng không nắm giữ ý niệm về một cái tôi, một chúng sinh hay một công trạng.", "Bạn có thể giúp ai đó mà không biến sự giúp đỡ thành món nợ không?"],
+      ["Diệu hạnh vô trụ", "Bố thí và hành thiện mà không trụ vào hình tướng, người cho, người nhận hay vật được cho; tâm rộng mở thì công đức không bị giới hạn bởi chấp trước.", "Khi cho đi, điều gì khiến lòng bạn trở nên nhẹ nhàng?"],
+      ["Như lý thật kiến", "Không nên chỉ qua sắc tướng hay âm thanh mà nhận biết chân lý. Cái thấy sâu sắc vượt khỏi những dấu hiệu bề ngoài.", "Bạn thường kết luận điều gì chỉ từ vẻ ngoài?"],
+      ["Chánh tín hy hữu", "Ngay cả những lời dạy cũng là phương tiện để qua sông, không phải vật để ôm giữ. Niềm tin chân thật đi cùng sự thực hành và suy xét.", "Có ý niệm nào từng hữu ích nhưng nay bạn có thể đặt xuống?"],
+      ["Vô đắc vô thuyết", "Giác ngộ không phải món đồ có thể chiếm hữu, và chân lý không bị giới hạn trong lời nói. Giáo pháp chỉ đường để tự mình thấy.", "Bạn có đang biến một mục tiêu tinh thần thành điều phải sở hữu?"],
+      ["Y pháp xuất sinh", "Mọi giá trị vật chất đều hữu hạn; hiểu và sống theo trí tuệ Bát Nhã đem lại lợi ích sâu xa vì giúp chuyển hóa cách ta nhìn đời.", "Điều gì nuôi dưỡng sự sáng suốt lâu bền trong bạn?"],
+      ["Nhất tướng vô tướng", "Đừng chấp vào những danh xưng như thánh quả hay chứng đắc. Khi không tự dựng lên một bản ngã tâm linh, lòng khiêm nhường có chỗ nảy nở.", "Bạn có đang âm thầm so sánh mình trên con đường tu tập?"],
+      ["Trang nghiêm Tịnh độ", "Tịnh độ không chỉ là một nơi chốn để tô điểm; sự thanh tịnh khởi lên từ tâm không bám víu và từ cách ta sống cùng muôn loài.", "Bạn có thể làm không gian quanh mình an lành hơn bằng việc nhỏ nào?"],
+      ["Vô vi phước thắng", "Phước lành không đo được bằng hình thức hay số lượng. Tâm không chấp công, cùng trí tuệ và lòng từ, làm cho việc thiện thêm sâu rộng.", "Bạn có thể làm điều tốt rồi để nó trôi qua nhẹ nhàng không?"],
+      ["Tôn trọng chánh giáo", "Nơi nào có người tiếp nhận, thực hành và chia sẻ trí tuệ này với lòng kính trọng, nơi ấy đáng được xem là chốn nương tựa tinh thần.", "Một lời dạy tốt đã được bạn gìn giữ bằng cách sống nào?"],
+      ["Như pháp thọ trì", "Người học không chỉ thuộc lời kinh mà còn đem tinh thần không chấp trước vào đời sống. Pháp được tiếp nối qua sự thực hành chân thật.", "Hôm nay bạn có thể biến một điều đã hiểu thành hành động nào?"],
+      ["Ly tướng tịch diệt", "Bước trên đường Bồ Tát mà không mắc kẹt vào hình tướng, thành tựu hay danh phận; không chấp tướng thì tâm được tự tại.", "Bạn đang bám vào hình ảnh nào về chính mình?"],
+      ["Trì kinh công đức", "Giữ gìn và sống theo trí tuệ có thể gặp trở ngại, nhưng không vì thế mà đánh mất lòng từ. Sức mạnh nằm ở sự bền bỉ và tâm không oán hận.", "Khi gặp khó khăn, điều gì giúp bạn không khép lòng?"],
+      ["Năng tịnh nghiệp chướng", "Nhìn sâu vào quá khứ và hiện tại giúp ta chuyển hóa lỗi lầm thay vì đồng nhất mình với chúng. Nhận trách nhiệm cũng là mở ra tự do.", "Bạn có thể học gì từ một điều mình từng hối tiếc?"],
+      ["Cứu cánh vô ngã", "Bồ Tát hành động vì lợi ích chúng sinh nhưng không đóng khung chúng sinh hay công hạnh trong những khái niệm cố định.", "Làm sao để lòng quan tâm không biến thành ý muốn kiểm soát?"],
+      ["Nhất thể đồng quán", "Mỗi người nhìn thế giới qua điều kiện và kinh nghiệm riêng. Trí tuệ nhắc ta đừng xem góc nhìn hạn hẹp của mình là toàn thể.", "Bạn có thể lắng nghe thêm góc nhìn nào trước khi phán đoán?"],
+      ["Pháp giới thông hóa", "Không thể lấy những dấu hiệu bên ngoài để đo lường một người đã tỉnh thức. Điều quan trọng là sự chuyển hóa trong cách thấy và cách sống.", "Bạn đang dùng tiêu chuẩn nào để đánh giá sự trưởng thành?"],
+      ["Ly sắc ly tướng", "Thân tướng và mọi hiện tượng luôn đổi thay; không nên nhầm cái biểu hiện nhất thời với chân lý bất biến.", "Điều gì đang thay đổi mà bạn vẫn cố xem là mãi mãi?"],
+      ["Phi thuyết sở thuyết", "Lời Phật dạy là phương tiện trao truyền, nhưng chân lý không bị sở hữu bởi người nói hay đóng kín trong câu chữ.", "Bạn có thể nghe lời nói mà vẫn nhìn sâu hơn lời nói không?"],
+      ["Vô pháp khả đắc", "Không có một pháp cố định để nắm bắt như vật sở hữu. Học hỏi chân chính cần sự cởi mở, không tự mãn vì điều đã biết.", "Bạn sẵn lòng để câu hỏi nào còn bỏ ngỏ?"],
+      ["Tịnh tâm hành thiện", "Làm điều thiện mà không trụ vào hình tướng đem lại sự an ổn rộng lớn; tâm càng ít vướng mắc, hành động càng tự do.", "Bạn có thể tử tế với ai mà không mong được ghi nhận?"],
+      ["Phước trí vô tỷ", "Phước hữu hạn không thể so với trí tuệ giúp tháo gỡ khổ đau. Của cải tinh thần được vun bồi bằng hiểu biết và lòng bi mẫn.", "Điều gì giúp bạn sáng suốt hơn trong một tình huống khó?"],
+      ["Hóa vô sở hóa", "Giúp đỡ chúng sinh mà không khởi tâm tự tôn là người cứu độ; lòng từ chân thật không dựng lên khoảng cách giữa ta và người.", "Bạn có thể giúp mà vẫn tôn trọng tự do của người kia không?"],
+      ["Pháp thân phi tướng", "Không nên tìm chân lý trong những hình tướng được tô vẽ. Pháp thân được gợi mở qua trí tuệ vượt ngoài phân biệt cố chấp.", "Bạn có đang nhầm biểu tượng với điều biểu tượng muốn chỉ đến?"],
+      ["Vô đoạn vô diệt", "Tánh không không có nghĩa là phủ nhận nhân quả hay xem mọi việc là vô nghĩa; đó là thấy sự vật nương nhau mà thành, luôn chuyển biến.", "Những điều kiện nào đã cùng góp mặt để tạo nên một việc bạn vừa trải qua?"],
+      ["Bất thọ bất tham", "Thực hành mà không chiếm hữu kết quả. Khi không tham cầu công đức cho riêng mình, tâm có thể rộng mở và thanh thản hơn.", "Bạn có thể làm hết lòng rồi buông kết quả ở mức nào?"],
+      ["Uy nghi tịch tĩnh", "Sự an tĩnh không nằm ở vẻ ngoài hay nghi thức riêng lẻ; nó thể hiện trong từng cử chỉ khi tâm không bị chấp trước dẫn dắt.", "Một cử chỉ bình thường nào có thể trở thành thực tập tỉnh thức?"],
+      ["Nhất hợp tướng", "Những gì ta gọi là một tổng thể được ghép từ nhiều duyên và phần tử. Hiểu điều đó giúp ta bớt tuyệt đối hóa các nhãn gọi.", "Một điều bạn xem là cố định thực ra được tạo nên từ những duyên nào?"],
+      ["Tri kiến bất sinh", "Đừng biến khái niệm về bản ngã, chúng sinh hay chân lý thành thực thể bất biến. Thấy biết không chấp trước giúp trí tuệ và từ bi cùng lớn lên.", "Có nhãn gọi nào bạn có thể nhìn mềm lại hôm nay?"],
+      ["Ứng hóa phi chân", "Mọi hình thức biểu hiện đều do duyên mà có, như giấc mộng hay bóng hình thoáng qua. Thấy tính mong manh ấy, ta sống tỉnh thức mà không lạnh lùng.", "Nếu mọi thứ đều đổi thay, bạn muốn trân quý điều gì ngay lúc này?"]
+    ];
+
+    const nav = document.getElementById("chapter-nav");
+    const container = document.getElementById("chapters");
+    const search = document.getElementById("search");
+    const noResults = document.getElementById("no-results");
+    const progressTrack = document.querySelector(".progress-track");
+    const progressBar = document.getElementById("progress-bar");
+
+    chapters.forEach(([title, summary, reflection], index) => {
+      const number = index + 1;
+      const id = `pham-${number}`;
+      const link = document.createElement("a");
+      link.href = `#${id}`;
+      link.textContent = `${String(number).padStart(2, "0")} · ${title}`;
+      nav.append(link);
+
+      const article = document.createElement("article");
+      article.className = "chapter";
+      article.id = id;
+      article.dataset.search = `${title} ${summary} ${reflection}`.toLocaleLowerCase("vi");
+      article.innerHTML = `
+        <p class="chapter-number">Phẩm ${String(number).padStart(2, "0")}</p>
+        <h3>${title}</h3>
+        <p class="chapter-summary">${summary}</p>
+        <p class="reflection"><strong>Quán chiếu:</strong> ${reflection}</p>
+      `;
+      container.append(article);
+    });
+
+    search.addEventListener("input", () => {
+      const query = search.value.trim().toLocaleLowerCase("vi");
+      let visible = 0;
+      container.querySelectorAll(".chapter").forEach((chapter) => {
+        const matches = chapter.dataset.search.includes(query);
+        chapter.hidden = !matches;
+        nav.querySelector(`a[href="#${chapter.id}"]`).hidden = !matches;
+        if (matches) visible += 1;
+      });
+      noResults.hidden = visible !== 0;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        nav.querySelectorAll("a").forEach((link) => {
+          link.classList.toggle("active", link.hash === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-18% 0px -72% 0px" });
+
+    container.querySelectorAll(".chapter").forEach((chapter) => observer.observe(chapter));
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = scrollable > 0 ? Math.min(100, Math.round((window.scrollY / scrollable) * 100)) : 0;
+      progressBar.style.width = `${percent}%`;
+      progressTrack.setAttribute("aria-valuenow", String(percent));
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  </script>
+</body>
+</html>
